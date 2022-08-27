@@ -1,1 +1,4 @@
 wasi-sdk
+build
+
+*.wasm

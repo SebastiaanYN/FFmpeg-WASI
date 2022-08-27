@@ -1,3 +1,9 @@
 [submodule "FFmpeg"]
 	path = FFmpeg
 	url = https://github.com/FFmpeg/FFmpeg.git
+[submodule "deps/zlib"]
+	path = deps/zlib
+	url = https://github.com/madler/zlib.git
+[submodule "deps/x264"]
+	path = deps/x264
+	url = https://github.com/ffmpegwasm/x264.git
