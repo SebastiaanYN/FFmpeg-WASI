@@ -14,11 +14,12 @@ FFMPEG_CONFIG_FLAGS_BASE=(
   --disable-runtime-cpudetect   # disable runtime cpu detect
   --disable-autodetect    # disable external libraries auto detect
   --disable-network       # https://github.com/WebAssembly/wasi-sdk/issues/112
-  # --enable-lto            # use link-time optimization
   --disable-pthreads
   --disable-w32threads
   --disable-os2threads
   --pkg-config-flags="--static"
+  # --enable-lto            # use link-time optimization
+
   --nm=../wasi-sdk/bin/nm
   --ar=../wasi-sdk/bin/ar
   --ranlib=../wasi-sdk/bin/ranlib
@@ -26,13 +27,13 @@ FFMPEG_CONFIG_FLAGS_BASE=(
   --cxx=../wasi-sdk/bin/clang++
   --objcc=../wasi-sdk/bin/clang
   --dep-cc=../wasi-sdk/bin/clang
+
   --enable-gpl
   --enable-libx264
   --enable-zlib
+
   --extra-cflags="-I../build/include"
   --extra-ldflags="-L../build/lib"
-  --enable-encoder=libx264
-  --enable-encoder=png
 )
 
 mkdir -p build
