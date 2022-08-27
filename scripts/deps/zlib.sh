@@ -9,5 +9,5 @@ CC=../../wasi-sdk/bin/clang \
     prefix=../../build \
     ./configure --static
 make install
-git reset --hard
+git rev-parse --is-inside-work-tree && git reset --hard
 cd ../..

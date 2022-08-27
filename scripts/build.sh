@@ -7,5 +7,5 @@ cp ../patches/file_open.c ./libavutil/file_open.c
 ../build/compile.sh
 cp ffmpeg ../ffmpeg.wasm
 cp ffprobe ../ffprobe.wasm
-git reset --hard
+git rev-parse --is-inside-work-tree && git reset --hard
 cd ..
