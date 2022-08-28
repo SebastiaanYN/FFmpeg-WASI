@@ -37,3 +37,7 @@ Currently only `zlib` and `x264` are included in the build, but adding more shou
 Some codecs require multiple iterations over the input/output (like mp4), which means you cannot pipe the input/output. Instead you need to write the file to disk so FFmpeg can read it from there. Depending on where you're running your code this may not be possible.
 
 Additionally, WASI is still a very young technology so some FFmpeg features, like threading and networking, have to be disabled. In the future it might be possible to enable these features.
+
+## License
+
+This project is licensed under MIT. Be aware that the licenses of FFmpeg and other dependencies may still apply.
