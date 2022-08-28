@@ -42,7 +42,6 @@ RUN ./scripts/install.sh
 # Copy sources
 COPY FFmpeg FFmpeg
 COPY deps deps
-COPY patches patches
 COPY scripts scripts
 
 # Build scripts

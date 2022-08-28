@@ -3,7 +3,7 @@
 set -euo pipefail
 
 cd FFmpeg
-cp ../patches/file_open.c ./libavutil/file_open.c
+sed -i 's,tempnam,NULL; //tempnam,g' ./libavutil/file_open.c
 ../build/compile.sh
 cp ffmpeg ../ffmpeg.wasm
 cp ffprobe ../ffprobe.wasm
