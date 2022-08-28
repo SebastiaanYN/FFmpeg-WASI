@@ -29,12 +29,15 @@ RUN apt-get update -qq && apt-get -y install \
   texinfo \
   wget \
   yasm \
-  zlib1g-dev
+  zlib1g-dev \
+  # libx264
+  libx264-dev \
+  # optimizations
+  binaryen
 
-# Install deps
-RUN apt-get -y install \
-    # libx264
-    libx264-dev
+# Install script
+COPY scripts/install.sh scripts/install.sh
+RUN ./scripts/install.sh
 
 # Copy sources
 COPY FFmpeg FFmpeg
@@ -42,14 +45,12 @@ COPY deps deps
 COPY patches patches
 COPY scripts scripts
 
-# Setup scripts
-RUN ./scripts/install.sh
+# Build scripts
+FROM setup AS build
 RUN ./scripts/build-deps.sh
 RUN ./scripts/configure.sh
-
-# Build
-FROM setup AS build
 RUN ./scripts/build.sh
+RUN ./scripts/optimize.sh
 
 # Export
 FROM scratch AS export

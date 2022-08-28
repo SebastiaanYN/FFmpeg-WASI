@@ -18,7 +18,7 @@ FFMPEG_CONFIG_FLAGS_BASE=(
   --disable-w32threads
   --disable-os2threads
   --pkg-config-flags="--static"
-  # --enable-lto            # use link-time optimization
+  --enable-lto            # use link-time optimization
 
   --nm=../wasi-sdk/bin/nm
   --ar=../wasi-sdk/bin/ar
