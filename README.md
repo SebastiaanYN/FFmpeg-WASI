@@ -18,14 +18,20 @@ Building the project requires several dependencies and steps to be executed. To 
 DOCKER_BUILDKIT=1 docker build -t ffmpeg-wasi --output . .
 ```
 
-## Usage
+## Examples
 
 You can use any WASI compatible WASM runtime, like `wasmtime` and `wasmer`, to run the binary.
 
-For example, the following command can be used to generate a thumbnail from a video.
+Generating a thumbnail from a video.
 
 ```sh
-cat videos/video-15s.avi | wasmtime ffmpeg.wasm -- -f avi -i - -ss 00:00:02.000 -vframes 1 -c:v png -f image2pipe - > out.png
+wasmtime --dir videos ffmpeg.wasm -- -i videos/video-1080p-60fps-2s.mp4 -ss 1 -vframes 1 videos/out.png
+```
+
+Converting from one video format to another.
+
+```sh
+wasmtime --dir videos ffmpeg.wasm -- -i videos/video-15s.avi -c:v libx264 videos/out.mp4
 ```
 
 ## Encoders
