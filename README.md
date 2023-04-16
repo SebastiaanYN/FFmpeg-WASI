@@ -15,7 +15,7 @@ git clone --recursive git@github.com:SebastiaanYN/FFmpeg-WASI.git
 Building the project requires several dependencies and steps to be executed. To make it easier to build the project a Dockerfile is provided. Simply run the following command to build `ffmpeg.wasm` and `ffprobe.wasm`.
 
 ```sh
-DOCKER_BUILDKIT=1 docker build -t ffmpeg-wasi --output . .
+DOCKER_DEFAULT_PLATFORM=linux/amd64 DOCKER_BUILDKIT=1 docker build -t ffmpeg-wasi --output . .
 ```
 
 ## Examples
