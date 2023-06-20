@@ -1,13 +1,13 @@
 # FFmpeg-WASI
 
-FFmpeg-WASI compiles FFmpeg to WASM. Unlike [ffmpeg.wasm](https://github.com/ffmpegwasm/ffmpeg.wasm) the code is compiled using WASI, which means you get no JavaScript glue.
+FFmpeg-WASI compiles FFmpeg to WASM. Unlike [ffmpeg.wasm](https://github.com/ffmpegwasm/ffmpeg.wasm) the WASM binary is standalone and required no JavaScript glue.
 
 ## Clone
 
 To get started you can clone the repository and its submodules.
 
 ```sh
-git clone --recursive git@github.com:SebastiaanYN/FFmpeg-WASI.git
+git clone --recursive https://github.com/SebastiaanYN/FFmpeg-WASI.git
 ```
 
 ## Build
@@ -16,6 +16,8 @@ Building the project requires several dependencies and steps to be executed. To 
 
 ```sh
 DOCKER_BUILDKIT=1 docker build -t ffmpeg-wasi --output . .
+# or
+./build.sh
 ```
 
 ## Examples
