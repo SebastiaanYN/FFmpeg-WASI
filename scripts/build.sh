@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -euo pipefail
+set -euox pipefail
 
 cd FFmpeg
 sed -i 's,tempnam,NULL; //tempnam,g' ./libavutil/file_open.c

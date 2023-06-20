@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -euo pipefail
+set -euox pipefail
 
 cd deps/x264
 CC=../../wasi-sdk/bin/clang \
@@ -13,7 +13,7 @@ CC=../../wasi-sdk/bin/clang \
     --disable-cli \
     --disable-asm \
     --disable-thread \
-    --extra-cflags="-D_WASI_EMULATED_SIGNAL" \
+    --extra-cflags="-D_WASI_EMULATED_SIGNAL -msimd128" \
     --extra-ldflags="-lwasi-emulated-signal"
 sed -i 's/#define HAVE_MALLOC_H 1/#define HAVE_MALLOC_H 0/g' config.h
 make install-lib-static

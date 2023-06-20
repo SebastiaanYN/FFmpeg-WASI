@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -euo pipefail
+set -euox pipefail
 
 FFMPEG_CONFIG_FLAGS_BASE=(
   --target-os=none        # use none to prevent any os specific configurations
@@ -42,8 +42,10 @@ cd FFmpeg
 ./configure ${FFMPEG_CONFIG_FLAGS_BASE[@]}
 
 make -n |
+  # Add cflags that ./configure does not accept
   sed 's/clang /clang -D_WASI_EMULATED_PROCESS_CLOCKS -lwasi-emulated-process-clocks /g' |
   sed 's/clang /clang -D_WASI_EMULATED_SIGNAL -lwasi-emulated-signal /g' |
+  sed 's/clang /clang -msimd128 /g' |
   cat > ../build/compile.sh
 chmod +x ../build/compile.sh
 cd ..

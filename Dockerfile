@@ -30,10 +30,8 @@ RUN apt-get update -qq && apt-get -y install \
   wget \
   yasm \
   zlib1g-dev \
-  # libx264
-  libx264-dev \
-  # optimizations
-  binaryen
+  # Additional dependencies
+  libx264-dev
 
 # Install script
 COPY scripts/install.sh scripts/install.sh

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -euo pipefail
+set -euox pipefail
 
-wasm-opt -O3 -o ffmpeg.wasm ffmpeg.wasm
-wasm-opt -O3 -o ffprobe.wasm ffprobe.wasm
+./binaryen/bin/wasm-opt -O3 -o ffmpeg.wasm ffmpeg.wasm
+./binaryen/bin/wasm-opt -O3 -o ffprobe.wasm ffprobe.wasm

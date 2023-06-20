@@ -1,4 +1,5 @@
+binaryen
 wasi-sdk
-build
 
+build
 *.wasm

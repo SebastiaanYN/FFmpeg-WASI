@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -euo pipefail
+set -euox pipefail
 
 for f in ./scripts/deps/*.sh; do
   bash "$f" 
